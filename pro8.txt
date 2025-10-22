@@ -1,0 +1,51 @@
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load iris
+from sklearn.model selection import train test_split
+import matplotlib.pyplot as plt
+data = load iris()
+x=data.data
+y=data.target
+y= pd.get_dummies (y).values
+x_train, x_test, y_train, y_test = train _test_split(x, y, test_size-20,
+random state-4)
+learning rate = 0.1
+iterations = 5000
+N=y train.size
+input size = 4
+hidden size-2
+output size =3
+results pd.DataFrame ({"accuracy":[0]} )
+np.random.seed(10)
+Wl = np.random.normal(scale-0.5, size-(input size, hidden size))
+W2 = np.random.normal (scale-0.5, size-(hidden size .
+output size))
+def sigmoid(x):
+return 1 /(1 + np.exp(-x)
+def accuracy(y_ pred, y_true):
+acc = y pred.argmax(axis=1 ) =y true. argmax(axis=1)
+return acc.mean()
+for itr in range(iterations):
+ZI = np.dot (x train, Wl)
+Al = sigmoid(Z1)
+Z2 = np.dot (A1, W2)
+A2 = sigmoid(Z2)
+acc = accuracy (A2, y train)
+new_row =pd.DataFrame({"'accuracy" [accl]})
+results = pd.concat ([results, new row], ignore index-True)
+El = A2 -y train
+dWl -E1 * A2 *(1 -A2)
+E2 = np.dot (dW1, W2.T)
+dW2= E2 * A1 *(1 - Al)
+W2_update = np.dot(A1.T, dWl)/N
+W1_update = np.dot (x train.T, dW2) / N
+W2 = W2 - learning rate * W2 update
+WI =Wi - learning rate * W1 update
+Z1 = np.dot (x test, W1)
+Al = sigmoid(Z1)
+Z2 = np.dot (A1, W2)
+A2 = sigmoid(Z2)
+acc = accuracy (A2, y test)
+print("Accuracy:)".format(acc))
+results.accuracy.plot (title="Accuracy")
+plt.show()

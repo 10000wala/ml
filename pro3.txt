@@ -1,0 +1,20 @@
+from sklearn.datasets import load iris
+from sklearn. model selection import train test split
+from sklearn. tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy _score
+iris = load iris()
+X = iris.data
+y= iris.target
+print(iris)
+x train,x test,y train,y test = train test split(x,y,test size=
+0.2,random _state = 42)
+clf= DecisionTreeClassifier()
+clf.fit(x_train,y_train)
+y_pred = clf.predict(x_test)
+accuracy accuracy score(y_test,y pred)
+print(f"Accuracy: {accuracy.2f} ")
+new sample [[5.1,2.5,4.6, 1.5]]
+predicted class_ index = clf.predict(new_ sample)[0]
+predicted class name = iris. target names[predicted class index]
+print(f'Predicted class for the new sample {new_sample} is:
+{predicted_class_name}")

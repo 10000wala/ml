@@ -1,0 +1,29 @@
+import pandas as pd
+from sklearn.model selection import traintest split
+from sklearn.feature extraction.text import Count Vectorizer
+from sklearn.naive bayes import MultinomialNB
+from sklearn.metrics import
+accuracy score,precision score,recall score
+df = pd.read csv('document.csv')
+print(df)
+texts = dff'text],values
+labels = df['label'],values
+vectorizer = CountVectorizer()
+X = vectorizer. fit transform(texts)
+x_train,x test,y train,y test train test split(x,labels,test size =
+0.20,random state =42)
+model - MultinomialNB)
+model.fit(x train,y train)
+y pred - model.predict(x test)
+accuracy accuracy_ score(y_ test,y_ pred)
+precision = precision score(y test,y pred,pos label 'positive')
+recall =recall score(y_test,y pred,pos label = 'positive')
+print("Test Result:")
+for text,true label,pred label in
+zip(vectorizer.inverse transform(x test),y test,y pred):
+print(f"Text:"'join(text)} | True:true_label} | Predicted:
+{pred label}")
+print("nMetrics:")
+print(f"Accuracy: {accuracy:.2f} ")
+print(f"Precision:(precision:.2f}")
+print(f"Recall: (recall:.2f} ")

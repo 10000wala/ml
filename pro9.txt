@@ -1,0 +1,21 @@
+from sklearn.model selection import train test split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+from sklearn.metrics import classification report
+from sklearn.metrics import confusion matrix
+from sklearn import datasets
+iris = datasets.load iris()
+print("Iris Dataset loaded..")
+x_ train,x _test,y_train,y_test =
+train test split(iris.data,iris. target, random state =0)
+for i in range(len(iris.target names):
+print("Label",i,"-",str(iris.target names[i]))
+classifier = KNeighborsClassifier(n neighbors=2)
+classifier.fit(x_train,y_train)
+y pred = classifier.predict(x test)
+print("Result of Classificatoin using K-nn with K = 2")
+for r in range (0,len(x test)):
+print("Sample:",str(x_test[r]),"Actual label:",str(y_test[r]),"Predicted-label:",str(y_pred[r)
+print("n Classificatoin Accuracy:",classifier. score(x_test,y_test));
+print("\n Classification
+Matrix: n",metrics.confusion matrix(y_test,y pred)
